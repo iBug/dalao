@@ -17,6 +17,7 @@ if [[ "$COMMIT_MSG" == *[release]* ]]; then
       gem push "$gem"
     fi
   done
+  rm $HOME/.gem/credentials
 else
   echo -e "\e[36;1m[Info]\e[0m Not publishing gems"
 fi
