@@ -1,0 +1,11 @@
+sudo: false
+language: ruby
+
+install:
+  - : no install
+
+script:
+  - gem build dalao.gemspec
+
+after_success:
+  - .ci/after.sh
