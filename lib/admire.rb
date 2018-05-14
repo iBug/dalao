@@ -1,22 +1,19 @@
 module USTC
+  IMMORTAL = ['zjx']
+
   class Admirable
     attr_accessor :name
 
     def initialize(name)
+      name.strip!
+    rescue NoMethodError => e
+    ensure
       @name = name
       yield self if block_given?
     end
 
-    def name=(name)
-      @name = name
-    end
-
     def ==(other)
       self.name == other.name
-    end
-
-    def eql?(other)
-      self.name.eql? other.name
     end
 
     def admire
@@ -26,11 +23,14 @@ module USTC
 
   class Dalao < Admirable
     def initialize(name = nil)
+      name.strip!
+    rescue NoMethodError => e
+    ensure
       super(name)
     end
 
     def fail?
-      raise TypeError, "#{@name} can never fail." if @name.downcase == 'zjx'
+      raise TypeError, "#{@name} can never fail." if IMMORTAL.include? @name.downcase
       true
     end
 
@@ -47,7 +47,7 @@ module USTC
     end
 
     def to_s
-      "#{self.name} is a dalao. " + self.admire
+      "#{@name} is a dalao. " + self.admire
     end
   end
 end
