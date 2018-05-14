@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.summary     = 'USTC dalao'
   s.license     = 'MIT'
   s.description = 'Use this gem to admire dalaos'
-  s.files       = `git ls-files -z`.split("\0")
+  s.files       = `git ls-files -z`.split "\0"
   s.test_files  = []
   s.executables = []
 

@@ -6,6 +6,11 @@ module USTC
 
     def initialize(name)
       @name = name
+      yield self if block_given?
+    end
+
+    def name=(name)
+      @name = name
     end
 
     def ==(other)
@@ -22,7 +27,7 @@ module USTC
   end
 
   class Dalao < Admirable
-    def initialize(name)
+    def initialize(name = nil)
       super(name)
     end
 
@@ -39,18 +44,19 @@ module USTC
       puts 'Ensure it\'s excellent.'
     end
 
+    def taunt
+      "You're so weak. #{@name} despises you."
+    end
+
     def to_s
       "#{self.name} is a dalao. " + self.admire
     end
   end
 end
 
-t = USTC::Dalao.new nil
-t.name = "ZJX"
-
-begin
+USTC::Dalao.new do |t|
+  t.name = 'ZJX'
   puts t
   puts t.excellent?
-rescue
-  puts 'Nothing here.'
+  puts t.taunt
 end
