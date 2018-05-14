@@ -22,6 +22,10 @@ module USTC
   end
 
   class Dalao < Admirable
+    def initialize(name)
+      super(name)
+    end
+
     def fail?
       raise TypeError, "#{@name} can never fail." if @name.downcase == 'zjx'
       true

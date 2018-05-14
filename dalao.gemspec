@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = "dalao"
+  s.name        = 'dalao'
   s.date        = Time.now.utc
   s.version     = "1.0.#{Time.now.utc.strftime '%-y.%-j'}.#{Time.now.to_i % 86400}"
   s.platform    = Gem::Platform::RUBY
@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.summary     = 'USTC dalao'
   s.license     = 'MIT'
   s.description = 'Use this gem to admire dalaos'
-  s.files       = `git ls-files`.split("\n")
+  s.files       = `git ls-files -z`.split("\0")
   s.test_files  = []
   s.executables = []
 
