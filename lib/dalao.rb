@@ -32,8 +32,7 @@ module USTC
     end
 
     def excellent?
-      s = self.fail?
-      s ? 'Failed.' : 'Not failed.'
+      self.fail? ? 'Failed.' : 'Not failed.'
     rescue TypeError => e
       e.to_s
     ensure
@@ -54,6 +53,4 @@ begin
   puts t.excellent?
 rescue
   puts 'Nothing here.'
-ensure
-  nil
 end
