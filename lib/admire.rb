@@ -19,6 +19,16 @@ module USTC
     def admire
       "Wow! #{@name} is too strong!"
     end
+
+    def to_s
+      "#{@name} is admirable."
+    end
+  end
+
+  def self.admire(a)
+    puts a.to_s
+    puts a.admire
+    true
   end
 
   class Dalao < Admirable
