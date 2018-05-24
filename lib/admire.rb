@@ -5,9 +5,10 @@ module USTC
     attr_accessor :name
 
     def initialize(name)
-      name.strip!
-    rescue NoMethodError => e
-    ensure
+      begin
+        name.strip!
+      rescue NoMethodError
+      end
       @name = name
       yield self if block_given?
     end
@@ -33,14 +34,15 @@ module USTC
 
   class Dalao < Admirable
     def initialize(name = nil)
-      name.strip!
-    rescue NoMethodError => e
-    ensure
+      begin
+        name.strip!
+      rescue NoMethodError => e
+      end
       super(name)
     end
 
     def fail?
-      raise TypeError, "#{@name} can never fail." if IMMORTAL.include? @name.downcase
+      fail TypeError, "#{@name} can never fail." if IMMORTAL.include? @name.downcase
       true
     end
 
