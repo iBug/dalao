@@ -9,9 +9,12 @@ Gem::Specification.new do |s|
   s.summary     = 'USTC dalao'
   s.license     = 'MIT'
   s.description = 'Use this gem to admire dalaos'
-  s.files       = `git ls-files -z`.split "\0"
+  s.files       = `git ls-files -z`.split("\0").reject { |x| x[0] == '.' }
   s.test_files  = []
-  s.executables = []
+  s.executables = s.files.map do |x|
+    next unless x =~ /^bin\//
+    x.slice 4..-1
+  end.compact
 
   #s.required_path = 'lib'
   #s.required_rubygems_version = '>= 1.3.6'

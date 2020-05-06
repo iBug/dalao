@@ -1,11 +1,7 @@
 module USTC
-  DALAO = [
-    'tky',
-    'zjx',
-    'hjy'
-  ]
+  DALAO = %w{taoky xyy loliw}
 
   def self.is_dalao(d)
-    d in DALAO
+    DALAO.include? d
   end
 end
