@@ -2,7 +2,7 @@ require 'admire'
 
 def admire
   USTC::Dalao.new do |t|
-    t.name = 'TaoKY'
+    t.name = 'loliw'
     puts t
     puts t.excellent?
     puts t.taunt
